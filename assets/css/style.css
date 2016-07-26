@@ -1,0 +1,32 @@
+.top{
+    margin-top:70px;
+    
+}
+.space{
+    float:right;
+}
+.box{
+   
+    border:solid 1.5px black;
+     padding-top: 70px;
+    padding-right: 30px;
+    padding-bottom: 50px;
+    padding-left: 30px;
+}
+.header{
+    text-align: center;
+    margin-bottom: 40px;
+}
+.tableEditor{
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: capitalize;
+    color:bold;
+     word-wrap: break-word;
+    width:100px; 
+   
+}
+.login{
+   padding-top: 30px; 
+padding-left: 100px;
+}
