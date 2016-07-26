@@ -1,0 +1,167 @@
+<div class="container" >
+ 
+    
+    <div class="col-md-12" >
+        <div class="top"></div>
+    </div>
+    
+ <div class="row" >
+	<div class="col-md-3"></div>
+	<div class="col-md-6">
+        <a ui-sref="events" class="btn btn-primary "  >Create Event</a>
+        <a ui-sref="viewEvent" class="btn btn-primary "  >View /Delete</a>
+        <a ui-sref="logout" class="btn btn-primary "  >Logout</a>
+        
+        
+           <div class="box">
+              
+               
+               <table class="table table-bordered ">
+                   <th>EventName</th>
+                    <th>EventType</th>
+                    <th>Date</th>
+                 
+                   <th></th>
+                   <th></th>
+                   <tr ng-repeat="row in viewAs.dataInfo | where:{userEmail: viewAs.userInfo}  ">
+                       <td>{{row.eventName   }}</td>
+                       <td>{{ row.eventType}}</td>
+                       <td>{{ row.eventDate}}</td>
+                       
+                       <td><button ng-click="viewAs.showRecord(row);">View</button>
+                           <button ng-click="viewAs.editRecord(row);">Edit</button>
+                       <button ng-click="viewAs.deleteRecord(row);">Delete</button></td>
+                   </tr>
+               </table>
+     
+      </div>
+     </div>
+	<div class="col-md-3">
+        
+        <table class="table table-bordered "  ng-if="viewAs.showSingle">
+                   
+                   
+            <tr>
+                       <td class="tableEditor">eventName</td>
+                       <td>{{viewAs.single.eventName}}</td>
+                       </tr>
+            <tr>
+                       <td class="tableEditor">eventType</td>
+                       <td>{{viewAs.single.eventType}}</td>
+                       </tr>
+            <tr>
+                       <td class="tableEditor">eventLocation</td>
+                       <td>{{viewAs.single.eventLocation}}</td>
+                       </tr>
+            <tr>
+                       <td class="tableEditor">eventStreetAddress</td>
+                       <td>{{viewAs.single.eventStreetAddress}}</td>
+                       </tr>
+            <tr>
+                       <td class="tableEditor">eventCity</td>
+                       <td>{{viewAs.single.eventCity}}</td>
+                       </tr>
+            <tr>
+                       <td class="tableEditor">eventState</td>
+                       <td>{{viewAs.single.eventState}}</td>
+                       </tr>
+            <tr>
+                       <td class="tableEditor">eventZipcode</td>
+                       <td>{{viewAs.single.eventZipcode}}</td>
+                       </tr>
+            <tr>
+                       <td class="tableEditor">eventDate</td>
+                       <td>{{viewAs.single.eventDate}}</td>
+                       </tr>
+            <tr>
+                       <td class="tableEditor">eventTime</td>
+                       <td>{{viewAs.single.eventTime}}</td>
+                       </tr> 
+            <tr>
+                       <td class="tableEditor">email</td>
+                       <td>{{viewAs.single.email}}</td>
+                       </tr>
+            <tr>
+                       <td class="tableEditor">Message</td>
+                       <td>{{viewAs.single.Message}}</td>
+                       </tr>
+            <tr>
+                       <td class="tableEditor">Phone</td>
+                       <td>{{viewAs.single.Phone}}</td>
+                       </tr>
+                        
+               </table> 
+        <form  ng-if="viewAs.showEdit">
+           
+             <table class="table table-bordered " >
+                   
+                   
+            <tr>
+                       <td class="tableEditor">eventName</td>
+                       <td>  <input type="text" class="form-control" id="eventName" placeholder="Enter your event Title "
+               ng-model="viewAs.fm.eventName"></td>
+                       </tr>
+            <tr>
+                       <td class="tableEditor">eventType</td>
+                       <td><input class="form-control" list="eventType" name="eventType" placeholder="Select an Event Type"
+               ng-model="viewAs.fm.eventType"></td>
+                       </tr>
+            <tr>
+                       <td class="tableEditor">eventLocation</td>
+                       <td><input type="text" class="form-control" id="location" placeholder="Enter Venue Name or Address" 
+               ng-model="viewAs.fm.eventLocation"></td>
+                       </tr>
+            <tr>
+                       <td class="tableEditor">eventStreetAddress</td>
+                       <td><input type="text" class="form-control" id="Street" placeholder="Street Address"
+                   ng-model="viewAs.fm.eventStreetAddress"> </td>
+                       </tr>
+            <tr>
+                       <td class="tableEditor">eventCity</td>
+                       <td><input type="text"  class="form-control" id="city" placeholder="city"
+                   ng-model="viewAs.fm.eventCity"> </td>
+                       </tr>
+            <tr>
+                       <td class="tableEditor">eventState</td>
+                       <td><input type="text"  class="form-control" id="state" placeholder="State"
+                   ng-model="viewAs.fm.eventState"></td>
+                       </tr>
+            <tr>
+                       <td class="tableEditor">eventZipcode</td>
+                       <td><input type="text" class="form-control" id="code" placeholder="Zipcode"
+                   ng-model="viewAs.fm.eventZipcode"></td>
+                       </tr>
+            <tr>
+                       <td class="tableEditor">eventDate</td>
+                       <td><input type="date" class="form-control" id="Date" placeholder=""
+                   ng-model="viewAs.fm.eventDate"></td>
+                       </tr>
+            <tr>
+                       <td class="tableEditor">eventTime</td>
+                       <td><input type="Time" class="form-control" id="time" placeholder=""
+                   ng-model="viewAs.fm.eventTime"></td>
+                       </tr> 
+            <tr>
+                       <td class="tableEditor">email</td>
+                       <td> <input type="email" multiple class="form-control" id="email" placeholder="email"
+               ng-model="viewAs.fm.email"></td>
+                       </tr>
+            <tr>
+                       <td class="tableEditor">Message</td>
+                       <td><textarea class="form-control" rows="5" id="Message"
+                 ng-model="viewAs.fm.Message"></textarea></td>
+                       </tr>
+            <tr>
+                       <td class="tableEditor">Phone</td>
+                       <td> <input type="number" class="form-control" id="contact" style=""
+               ng-model="viewAs.fm.Phone"></td>
+                       </tr>
+                       
+               </table> 
+            <button ng-click="viewAs.saveRecord(viewAs.fm);"  >Update</button> 
+        </form>
+     </div>
+     </div>
+               
+    </div>
+

@@ -1,0 +1,58 @@
+<div class="container" >
+ 
+    
+    <div class="col-md-12" >
+        <div class="top"></div>
+    </div>
+    
+ <div class="row" >
+	<div class="col-md-4"></div>
+	<div class="col-md-4">
+           <div class="box">
+               <h4 class="header">Login {{ loginAs.message }}</h4>  
+            
+            
+       <form role="form" name="loginForm" >
+      	   
+		<div class="form-group">
+        <label for="userEmail">Email</label>
+        <input type="email" class="form-control" id="userEmail" name="Email"  required
+        placeholder="Email"
+        ng-model="loginAs.fm.userEmail">
+		
+        </div>	 
+        
+		<div class="form-group">
+         <label for="userPassword">Password</label>
+        <input type="password" class="form-control" id="userPassword" placeholder="Password"  name="Password" required
+        ng-model="loginAs.fm.userPassword"
+        ng-disabled="loginForm.Email.$invalid"
+        pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})">
+        </div>
+            <div ng-if="regForm.password.$invalid && regForm.password.$dirty"> Please enter password which has 6 to 20 characters string with at least one digit, one upper case letter, one lower case letter and one special symbol (“@#$%”). </div>
+       
+		
+        <div class="checkbox">
+		
+          
+           <span class="space">
+               <button class="btn btn-primary" 
+                ng-disabled="loginForm.Email.$invalid || loginForm.Password.$invalid"
+                ng-click="loginAccount(loginAs.fm);" type="button">Login</button>
+            </span>
+            </div>
+            
+               </form>
+            </div>
+        <div class="login">
+            
+           <a ui-sref="register"  class="btn btn-primary "  >Register</a>  
+        </div>
+
+	<div class="col-md-4"></div>
+        
+        
+     </div>
+    </div>
+    
+        </div>

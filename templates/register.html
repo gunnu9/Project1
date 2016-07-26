@@ -1,0 +1,73 @@
+<div class="container" >
+ 
+    
+    <div class="col-md-12" >
+        <div class="top"></div>
+    </div>
+    
+ <div class="row" >
+	<div class="col-md-4"></div>
+	<div class="col-md-4">
+           <div class="box">
+       <h4 class="header">Create An Account </h4>
+        <form role="form" name="regForm">
+            
+            
+        <div class="form-group">
+        <label for="eventName">First & Last Name</label>
+        <input type="text" class="form-control" id="inputName" placeholder="User Name" 
+        pattern="[a-zA-Z0-9]+"
+        ng-model="registerAs.fm.userName" name="userName" required > 
+        </div>	
+            <div ng-if="regForm.userName.$invalid">
+                Please enter User Name, which is Alpha Numeric
+            </div>
+      	
+		<div class="form-group">
+        <label for="eventEmail">Email</label>
+        <input type="email" class="form-control" id="inputEmail" placeholder="Email" 
+        ng-model="registerAs.fm.userEmail"
+        ng-keyup="registerAs.checkEmail(registerAs.fm.userEmail);"
+        ng-change="registerAs.checkEmail(registerAs.fm.userEmail);" 
+        ng-disabled="regForm.userName.$invalid" 
+        name="email" required> {{registerAs.emailError}}
+        </div>	
+        
+		<div class="form-group">
+         <label for="eventPassword">Password</label>
+        <input type="password" class="form-control" id="inputPassword" placeholder="Password"
+               ng-model="registerAs.fm.userPassword"
+                ng-disabled="regForm.userName.$invalid || regForm.email.$invalid || registerAs.validAccount" 
+                pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})"
+                name="password" required> 
+            <div ng-if="regForm.password.$invalid && regForm.password.$dirty"> Please enter password which has 6 to 20 characters string with at least one digit, one upper case letter, one lower case letter and one special symbol (“@#$%”). </div>
+        </div>
+        <div class="form-group">
+         <label for="eventPhone">Phone</label>
+        <input type="phone" class="form-control" id="inputPassword" placeholder="Phone"
+               ng-model="registerAs.fm.userPhone"
+               pattern="\d{3}[\-]\d{3}[\-]\d{4}"
+               ng-disabled="regForm.userName.$invalid || regForm.email.$invalid || regForm.password.$invalid || registerAs.validAccount "  name="phone" required>
+        </div>	
+		
+        <div class="checkbox">
+		
+          
+           <span class="space">
+               <button type="button" class="btn btn-primary" ng-click="registerAs.registerAccount(registerAs.fm);"  ng-disabled="regForm.userName.$invalid || regForm.email.$invalid || regForm.password.$invalid  || regForm.phone.$invalid || registerAs.validAccount "   >SignUp</button>
+            </span>
+            </div>
+          
+               </form>
+            </div>
+        <div class="register">
+           <a ui-sref="login"  class="btn btn-primary "  >Login</a>  
+        </div>
+
+	<div class="col-md-4"></div>
+        
+        
+     </div>
+    </div>
+    
+        </div>

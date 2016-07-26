@@ -1,0 +1,1 @@
+angular.module("deepika").constant("mainURL","https://meetup-6b674.firebaseio.com");

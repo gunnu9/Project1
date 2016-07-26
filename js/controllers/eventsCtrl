@@ -1,0 +1,6 @@
+angular.module("deepika").controller("registerCtrl",registerCtrlModel);
+
+function registerCtrlModel(){
+	
+
+}
